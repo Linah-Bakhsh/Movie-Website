@@ -1,0 +1,128 @@
+
+
+.black{
+    background-color: black !important;
+}
+
+.header{
+
+    background-image: url('../img/header.svg');
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+
+}
+
+.poster {
+    margin: auto;
+    width: 60%;
+    height: 25%;
+
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .space{
+
+    margin: auto;
+    height: 40%;
+   
+    padding: 10px;
+    margin-top: 10px;
+  }
+ 
+  .bg-darklight{
+    
+    background-color: #231F20 !important;
+    
+  }
+  .p1{
+  
+    font-family:DINCondensed-Bold, DIN Condensed !important;
+    font-size:140px;
+    border-bottom: 5px solid #c2262c;
+    text-align:center;
+     margin: auto;
+    
+  }
+
+  .p2{
+  
+    font-family:DINCondensed-Bold, DIN Condensed !important;
+    
+    text-align:center;
+     margin: auto;
+    
+  }
+  
+  .text-red{
+    color: #C2262C !important;
+  }
+
+  .text-blue{
+    color: #00FEFE !important;
+  }
+  .bg-red{
+    background-color: #C2262C !important;
+  }
+  .active{
+    background-color: #231F20!important;
+   
+  }
+  .nav-link{
+    transition: all .2s ease-in-out;
+    color: white !important;
+  }
+
+  .grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+  .nav-link:hover{
+    
+    border-bottom: 5px solid #C2262C !important;
+  }
+
+  .fa-heart{
+    transition: all .2s ease-in-out;
+    transform: scale(1.2, 1.2);
+    opacity: .3;
+    color: gray !important;
+
+  }
+  .fa-heart:hover{
+    opacity: .3;
+    color: #C2262C !important;
+    transform: scale(2, 2);
+
+  }
+  .gradiant{
+    background-image: linear-gradient(to right, #C2262C  35%, #00FEFE  100%)
+  }
+  .btn-grad {background-image: linear-gradient(to right, #C2262C 0%, #00FEFE  51%, #C2262C  100%)}
+  .btn-grad {
+     margin: 10px;
+     padding: 15px 45px;
+     text-align: center;
+     text-transform: uppercase;
+     transition: 0.5s;
+     background-size: 200% auto;
+     color: white;            
+     box-shadow: 0 1 5px #00FEFE;
+     border-radius: 50px;
+     display: block;
+     border:none;
+   }
+
+   .btn-grad:hover {
+     background-position: right center; /* change the direction of the change here */
+     color: white;
+     text-decoration: none;
+     
+   }
+  
+  
+
+  
+
+  
