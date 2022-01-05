@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Movie</title>
-  <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Movie</title>
+<link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
 <link rel="stylesheet" href="css/style.css">
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://kit.fontawesome.com/a6edd0624f.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/a6edd0624f.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link href="https://unpkg.com/pattern.css" rel="stylesheet">
-  <link href="dist/pattern.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body class="black text-light">
 
-  
-  
   <header class="header">
     
 
@@ -40,20 +40,22 @@
     </div>
    
   </header>
-  <nav class="nav flex-column flex-sm-row">
-    <a class="flex-sm-fill text-sm-center rounded-top nav-link active" aria-current="page" href="#">General</a>
+  <nav class="nav flex-column  flex-sm-row">
+    <a class="flex-sm-fill text-sm-center rounded-top  nav-link active" aria-current="page" href="#">Popular</a>
     <a class="flex-sm-fill text-sm-center rounded-top  nav-link" href="#">Favurate</a>
     <a class="flex-sm-fill text-sm-center rounded-top  nav-link" href="#">action</a>
     <a class="flex-sm-fill text-sm-center rounded-top nav-link disabled">Disabled</a>
+    <input type='text' v-model='query' @keyup='getResult(query)'>
+
   </nav>
 
 <div class="bg-darklight p-5"> 
 
   <div class="container p-5">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="row row-cols-1 row-cols-md-4 g-4" id="popular">
      
       <div class="col grow">
-        <div class="card bg-darklight h-100">
+        <div class="card bg-darklight  h-100">
           <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgICAgHCAgHBwcHBwoHBwgHBw8ICQcKFREiIhURExMYHSggGBolJx8VITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQsNDgwJDisdFRkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAQMAwgMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAAAQf/xAAWEAEBAQAAAAAAAAAAAAAAAAAAARH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8Aw+3UAAAAEBQABAFAAEAFEBRFAEUAAAEBRAFAABAAAAAVBQQAAAAAAFBAAUAAAAABFABAAAAFBAAAAAAAAAAVABUFAEUAABAAAAAAAAAAAAAAAAAAAAABRAFEAAAFQAAAAAAAAAAAAAAAAAAAABUVAAAAAAAAAAAAAAAAAAAAAAAAAUABAAAAAAAAAAAAAAAAAAAAAAABQAQAAFBAAAAAAAAAAAAAAAAAAAAUAEFQAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAUEABQQAAAAAAAAAAAAAAAAAAAAAFAAQAFQAAAFQAAAAAAAAAAAAAAAAFABFQAVAAAFQAAAAAAAAABUAAAAAVAFAAAAEUEBQEVAUQABQQAAAAAAAAAFRUBUUABAVFAQUBBQEABUUBFQAAAFAQABQAAAAAEUBFAAAAUEFQAVAQUAAABAFAAAAAAAEUAAAAAAAAAAAAAAABAFAAAAQAUAH/9k=" class="card-img-top" alt="...">
           <div class="card-body">
             <div class="row ">
@@ -135,12 +137,143 @@
       
     </div>
 
-    <button type="button" class="btn-grad m-5  mx-auto d-block  ">show more</button>
+    <button type="button" class="btn-grad m-5  mx-auto d-block  " id="show">show more</button>
 
   </div>
 </div>
 
+
+
+  <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl bg-dark">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+      
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+   
+       <!-- Movie window --> 
+<div id="img_container" class=" modal-body">
+  <div class="container img_text" >
+    <div class="row p-5">
+      <div class="col-3  ">
+        <img id="poster" class="img-fluid  pt-5 rounded" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg" alt="" >
+      </div>
+      <div class="col-sm-9  ">
+        
+        <h1 class="desplay-1 pt-5 img_text" id="title"> Title</h1>
+        <p id="date" class="text-muted">12+ . <span id="date">04/15/2021</span> . 2h 16m</p>
+        
+        <ul class="nav nav-pills  " id="genres">
+          <li class="nav-item m-2 ">
+            <a class="nav-link active text-dark  rounded-pill bg-light" aria-current="page" href="#">Active</a>
+          </li>
+          <li class="nav-item m-2">
+            <a class="nav-link active text-dark  rounded-pill bg-light" href="#">Link</a>
+          </li>
+          <li class="nav-item m-2">
+            <a class="nav-link active text-dark rounded-pill  bg-light" href="#">Link</a>
+          </li>
+          <li class="nav-item m-2">
+            <a class="nav-link active text-dark  rounded-pill bg-light">Disabled</a>
+          </li>
+        </ul>
   
+        <h2 class="py-3"> Overview </h2>
+        <p id="overview">
+          r disaster that could have turned a large part of the European continent into an uninhabitable exclusion zone. This is their story.
+        </p>
+      
+          <div class="row pt-2">
+            <div class="col order-last">
+              
+              <h4 class="text-center"> Vote Average</h4>
+              <p class=" h3 text-center" id="vote_average">10
+              </p>
+              
+            </div>
+            <div class="col">
+              
+              <h4 class="text-center">Popularity</h4>
+              <p class=" h3 text-center" id="popularity">8817.063
+              </p>
+              
+            </div>
+            <div class="col order-first">
+              
+                <h4 class="text-center">Vote Count</h4>
+                <p class="h3 text-center" id="vote_count">3427
+                </p>
+              
+          
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  </div>
+  
+  <!-- Actors content -->
+  <div class="container">
+    <div class="row p-15">
+    </div> 
+    <h2 class="px-5 pt-5">Similar
+    </h2>
+    <div class="list-group bg-dark  list-group-horizontal overflow-auto mx-5 py-2" style="width: 90%;" id="similar">
+     
+       <a href="#" class=" list-group-item list-group-item-action active border-0 grow" style="width: 12rem;"  >
+          <div class="card bg-dark " >
+            <img src="https://www.themoviedb.org/t/p/w138_and_h175_face/pGo7zMGsMXOMSMZc68Xi3LvzeP0.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title " >Card title</h5>
+              
+            </div>
+        </div>
+      </a>
+    
+      <a href="#" class="list-group-item border-0 list-group-item-action active grow" style="width: 12rem;"  >
+        <div class="card bg-dark ">
+          <img src="https://www.themoviedb.org/t/p/w138_and_h175_face/pGo7zMGsMXOMSMZc68Xi3LvzeP0.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            
+          </div>
+      </div>
+    </a>
+    
+    <a href="#" class="list-group-item  list-group-item-action active border-0 grow" style="width: 12rem;">
+      <div class="card bg-dark " >
+        <img src="https://www.themoviedb.org/t/p/w138_and_h175_face/pGo7zMGsMXOMSMZc68Xi3LvzeP0.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          
+        </div>
+    </div>
+    </a>
+    
+    </div>  
+    </div>
+  </div>
+     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+
+ 
+
+
   <!-- Footer -->
   <footer class="gradiant mt-5 text-center text-white">
     <!-- Grid container -->
@@ -197,5 +330,7 @@
   </footer>
   <!-- Footer -->
   
+
+  <script src="js/app.js"></script>
 </body>
 </html>
