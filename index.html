@@ -40,13 +40,28 @@
     </div>
    
   </header>
-  <nav class="nav flex-column  flex-sm-row">
-    <a class="flex-sm-fill text-sm-center rounded-top  nav-link active" aria-current="page" href="#">Popular</a>
-    <a class="flex-sm-fill text-sm-center rounded-top  nav-link" href="#">Favurate</a>
-    <a class="flex-sm-fill text-sm-center rounded-top  nav-link" href="#">action</a>
-    <a class="flex-sm-fill text-sm-center rounded-top nav-link disabled">Disabled</a>
-    <input type='text' v-model='query' @keyup='getResult(query)'>
-
+  <nav class="category nav flex-column  flex-sm-row">
+    <a class="flex-sm-fill text-sm-center rounded-top  nav-link active" aria-current="page" href="#">popular</a>
+    <a class="flex-sm-fill text-sm-center rounded-top  nav-link" href="#">top_rated</a>
+    <a class="flex-sm-fill text-sm-center rounded-top  nav-link" href="#">now_playing</a>
+    <a class="flex-sm-fill text-sm-center rounded-top nav-link ">upcoming</a>
+    <a class="flex-sm-fill text-sm-center rounded-top nav-link dropdown  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown</a>
+    
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+    <form id="searchForm">
+      <input
+        type="text"
+        class="form-control"
+        id="searchText"
+        placeholder="Search Movies..."
+      />
+    </form>
   </nav>
 
 <div class="bg-darklight p-5"> 
@@ -142,8 +157,6 @@
   </div>
 </div>
 
-
-
   <!-- Button trigger modal -->
 
 
@@ -151,17 +164,19 @@
 <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl bg-dark">
     <div class="modal-content bg-dark">
-      <div class="modal-header">
       
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
    
        <!-- Movie window --> 
-<div id="img_container" class=" modal-body">
-  <div class="container img_text" >
+<div id="img_container" >
+  <div class="box modal-body">
+  <div class="container img_text " >
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="button" class="btn-close bg-light " data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
     <div class="row p-5">
       <div class="col-3  ">
-        <img id="poster" class="img-fluid  pt-5 rounded" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg" alt="" >
+        <img id="poster" class="img-fluid  pt-5 rounded-3" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg" alt="" >
       </div>
       <div class="col-sm-9  ">
         
@@ -218,7 +233,7 @@
   
   </div>
   </div>
-  
+</div>
   <!-- Actors content -->
   <div class="container">
     <div class="row p-15">
@@ -260,11 +275,6 @@
     </div>  
     </div>
   </div>
-     
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        
-      </div>
     </div>
   </div>
 </div>

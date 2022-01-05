@@ -55,6 +55,11 @@ get_moive: function (){
 }
   }
 
+   
+function getResult(query) {
+  axios.get('https://api.themoviedb.org/3/search/movie?api_key=772213af10f80b00269efe94f7049bb3&query=' + query).then(response => { this.results = response.data.results })
+    console.log(this.results)
+  }
 
 // click category function 
 $('nav > a').click(function (e) {
@@ -94,7 +99,7 @@ function myFunction(id) {
       document.getElementById('popularity').innerHTML = ~~movie.popularity
       document.getElementById('vote_count').innerHTML = movie.vote_count
       document.getElementById("poster").src = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/"+movie.poster_path;
-      document.getElementById("poster").classList="img-fluid  pt-5 rounded"
+      document.getElementById("img_container").style.backgroundImage = "url('http://image.tmdb.org/t/p/w600_and_h900_bestv2/"+movie.poster_path+"')";
 
       document.getElementById("poster").src = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/"+movie.poster_path;
 
@@ -148,3 +153,53 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 });
 
 
+
+
+$(document).ready(() => {
+  $("#searchForm").on("submit", e => {
+    let searchText = $("#searchText").val();
+    getMovies(searchText);
+    e.preventDefault();
+  });
+});
+
+
+function getMovies(searchText) {
+  axios
+    .get(
+      "https://api.themoviedb.org/3/search/movie?api_key=d80a54a0422d5fff6149c48741c8bece&language=en-US&query=" +
+        searchText
+    )
+    .then(response => {
+      document.getElementById('popular').innerHTML = response.data.results.map(movie => 
+        `
+        
+      
+        <div class="col grow" id="${movie.id}" onclick="myFunction(this.id)" > 
+            <div class="animate__animated animate__fadeInUp card bg-darklight h-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <img src="http://image.tmdb.org/t/p/w500/${movie.poster_path}" >
+              <div class="card-body">
+                <div class="row ">
+                  <div class="col">
+                    <h5 class="card-title ">${movie.title} </h5>
+                  </div>
+                  <div class="col-auto ">
+                    <i class="fa fa-heart " ></i>
+                  </div>
+                </div>
+                <p class="card-text"> </p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">${movie.release_date}</small>
+              </div>
+            </div>
+          </div>
+    
+      `
+      ).join('')
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
+  }
